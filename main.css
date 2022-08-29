@@ -18,9 +18,7 @@ body {
 }
 
 .divLibrary {
-  height: 10%; 
-}
-
-.divLibrary div {
-  
+  display: flex;
+  height: 50%; 
+  justify-content: space-between;
 }

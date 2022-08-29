@@ -17,7 +17,8 @@ function addBookToLibrary (newBook) {
 
 function DisplayLibrary () {
   myLibrary.forEach(book => {
-    textBook = document.createTextNode(`${book}`); 
-    divLibrary.appendChild(textBook); 
+    pBook = document.createElement('p'); 
+    pBook.textContent = `${book}`; 
+    divLibrary.appendChild(pBook); 
   }); 
 }
