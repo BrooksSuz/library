@@ -22,5 +22,14 @@ body {
 .divLibrary {
   display: flex;
   height: 50%; 
-  justify-content: space-between;
+  gap: 10px;
+}
+
+form {
+  display: none;
+  flex-direction: column;
+}
+
+.btnRm {
+  align-self: flex-start;
 }
