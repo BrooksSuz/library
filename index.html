@@ -11,7 +11,39 @@
 <body>
   <div class="container">
     <div class="divLibrary"></div>
-    <button type="button">New Book</button>
+
+    <div class="btn-container">
+      <button type="button">New Book</button>
+    </div>
+
+    <form action="" method="get">
+
+      <div>
+        <label for="author">Enter Author's Name: </label>
+        <input type="text" name="author" id="author" required>
+      </div>
+
+      <div>
+        <label for="title">Enter Title: </label>
+        <input type="text" name="title" id="title" required>
+      </div>
+
+      <div>
+        <label for="pages">Enter Number of Pages: </label>
+        <input type="text" name="pages" id="pages" required>
+      </div>
+
+      <div>
+        <label for="read">Read This Book?: </label>
+        <input type="text" name="read" id="read" required>
+      </div>
+
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+
+    </form>
+
   </div>
   <script src="scripts.js"></script>
 </body>

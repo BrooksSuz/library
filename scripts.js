@@ -1,4 +1,5 @@
 let divLibrary = document.querySelector('.divLibrary'); 
+const buttonForm = document.querySelector('button'); 
 
 let myLibrary = ['Moby Dick', 'The Great Gatsby', '1984']; 
 
@@ -22,3 +23,8 @@ function DisplayLibrary () {
     divLibrary.appendChild(pBook); 
   }); 
 }
+
+buttonForm.addEventListener('click', function(e) {
+  form = document.createElement('form'); 
+  
+})
