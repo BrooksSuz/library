@@ -22,9 +22,7 @@ body {
 
 .divLibrary {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  height: 50%; 
+  flex-direction: column;
 }
 
 form {

@@ -27,9 +27,6 @@ function Book(title, author, pages, read) {
   this.author = author; 
   this.pages = pages; 
   this.read = read; 
-  this.displayNewBook = function() {
-    console.log(`${Book.title} by ${Book.author}, ${Book.pages} pages, ${Book.read}`); 
-  }
 }
 
 btnSubmit.addEventListener('click', function addBookToLibrary() {
@@ -41,23 +38,28 @@ btnSubmit.addEventListener('click', function addBookToLibrary() {
 const divLibrary = document.querySelector('.divLibrary'); 
 const btnDisplayLibrary = document.querySelector('.btnDisplayL'); 
 
-btnDisplayLibrary.addEventListener('click', function DisplayLibrary () {
-  myLibrary.forEach(book => {
+btnDisplayLibrary.addEventListener('click', function displayLibrary() {
+  for (let i = 0; i < myLibrary.length; i++) {
     //create book card
     pBook = document.createElement('p');
     pBook.textContent = `
-    ${book.title}, 
-    ${book.author}, 
-    ${book.pages}, 
-    ${book.read}`; 
-    divLibrary.appendChild(pBook); 
+    ${myLibrary[i].title} by 
+    ${myLibrary[i].author}, 
+    ${myLibrary[i].pages} pages, 
+    ${myLibrary[i].read}`; 
+    pBook.setAttribute('id', `book-${i}`);
+    divLibrary.appendChild(pBook);
 
     //create book removal button
-    btnRm = document.createElement('button'); 
+    const btnRm = document.createElement('button')
+    btnRm.addEventListener('click', function removeBook(e) {
+      delBook = document.getElementById(`book-${i}`); 
+      delBook.remove(); 
+    });  
     btnRm.textContent = 'Remove Book'; 
     btnRm.classList.add('btnRm'); 
     divLibrary.appendChild(btnRm); 
-  }); 
+  }
 }); 
 
 const form = document.querySelector('form'); 
