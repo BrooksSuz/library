@@ -1,18 +1,18 @@
-const myLibrary = [{
+let myLibrary = [{
   title: 'Moby Dick', 
   author: 'Herman Melville', 
   pages: '150', 
-  read: 'no'
+  read: 'not read yet'
 }, {
   title: 'The Great Gatsby', 
   author: 'F. Scott Fitzgerald', 
   pages: '200', 
-  read: 'yes'
+  read: 'has been read'
 }, {
   title: '1984', 
   author: 'George Orwell', 
   pages: '120', 
-  read: 'yes'
+  read: 'has been read'
 }]; 
 
 
@@ -28,19 +28,13 @@ function Book(title, author, pages, read) {
   this.pages = pages; 
   this.read = read; 
   this.displayNewBook = function() {
-    console.log(`${title} by ${author}, ${pages} pages, ${read}`); 
+    console.log(`${Book.title} by ${Book.author}, ${Book.pages} pages, ${Book.read}`); 
   }
 }
 
-const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value); 
-
-function addBookToLibrary () {
-
-}
-
-
-btnSubmit.addEventListener('click', function(e) {
-  addBookToLibrary(); 
+btnSubmit.addEventListener('click', function addBookToLibrary() {
+  const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value);
+  myLibrary.push(newBook); 
 });
 
 
@@ -51,7 +45,11 @@ btnDisplayLibrary.addEventListener('click', function DisplayLibrary () {
   myLibrary.forEach(book => {
     //create book card
     pBook = document.createElement('p');
-    pBook.textContent = `${book.title}`; 
+    pBook.textContent = `
+    ${book.title}, 
+    ${book.author}, 
+    ${book.pages}, 
+    ${book.read}`; 
     divLibrary.appendChild(pBook); 
 
     //create book removal button
