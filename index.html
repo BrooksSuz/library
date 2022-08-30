@@ -16,31 +16,24 @@
       <button type="button" class="btnDisplayL">Display Library</button>
     </div>
 
-    <form action="" method="get">
+    <form>
 
-      <div>
-        <label for="author">Author's Name: </label>
-        <input type="text" name="author" id="author" required>
-      </div>
+      <label for="title">Title: </label>
+      <input type="text" name="title" id="title" class="input-book" required>
 
-      <div>
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" required>
-      </div>
+      <label for="author">Author's Name: </label>
+      <input type="text" name="author" id="author" class="input-book" required>
 
-      <div>
-        <label for="pages">Number of Pages: </label>
-        <input type="text" name="pages" id="pages" required>
-      </div>
+      <label for="pages">Number of Pages: </label>
+      <input type="text" name="pages" id="pages" class="input-book" required>
 
-      <div>
-        <label for="read">Read This Book?: </label>
-        <input type="text" name="read" id="read" required>
-      </div>
+      <label for="read">Read This Book?: </label>
+      <select id="read" name="read" size="2" multiple required>
+        <option value="not read yet">not read yet </option>
+        <option value="has been read">has been read</option>
+      </select>
 
-      <div>
-        <input type="submit" value="Submit">
-      </div>
+      <input type="button" value="Submit" class="btnSubmit">
 
     </form>
 

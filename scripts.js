@@ -1,9 +1,4 @@
-const divLibrary = document.querySelector('.divLibrary'); 
-const buttonDisplayForm = document.querySelector('.btnDisplayF'); 
-const buttonDisplayLibrary = document.querySelector('.btnDisplayL'); 
-const form = document.querySelector('form'); 
-
-let myLibrary = [{
+const myLibrary = [{
   title: 'Moby Dick', 
   author: 'Herman Melville', 
   pages: '150', 
@@ -20,20 +15,39 @@ let myLibrary = [{
   read: 'yes'
 }]; 
 
+
+const btnSubmit = document.querySelector('.btnSubmit'); 
+const inputTitle = document.getElementById('title'); 
+const inputAuthor = document.getElementById('author'); 
+const inputPages = document.getElementById('pages'); 
+const inputRead = document.getElementById('read'); 
+
 function Book(title, author, pages, read) {
   this.title = title; 
   this.author = author; 
   this.pages = pages; 
   this.read = read; 
-}
-
-function addBookToLibrary (newBook) {
-  if (!myLibrary.includes(newBook)) {
-    myLibrary.push(newBook); 
+  this.displayNewBook = function() {
+    console.log(`${title} by ${author}, ${pages} pages, ${read}`); 
   }
 }
 
-buttonDisplayLibrary.addEventListener('click', function DisplayLibrary () {
+const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value); 
+
+function addBookToLibrary () {
+
+}
+
+
+btnSubmit.addEventListener('click', function(e) {
+  addBookToLibrary(); 
+});
+
+
+const divLibrary = document.querySelector('.divLibrary'); 
+const btnDisplayLibrary = document.querySelector('.btnDisplayL'); 
+
+btnDisplayLibrary.addEventListener('click', function DisplayLibrary () {
   myLibrary.forEach(book => {
     //create book card
     pBook = document.createElement('p');
@@ -46,12 +60,15 @@ buttonDisplayLibrary.addEventListener('click', function DisplayLibrary () {
     btnRm.classList.add('btnRm'); 
     divLibrary.appendChild(btnRm); 
   }); 
-})
+}); 
 
-buttonDisplayForm.addEventListener('click', function(e) {
+const form = document.querySelector('form'); 
+const btnDisplayForm = document.querySelector('.btnDisplayF'); 
+
+btnDisplayForm.addEventListener('click', function(e) {
   if (form.style.display === 'flex') {
     form.style.display = 'none'; 
   } else {
     form.style.display = 'flex'; 
   }
-})
+}); 
