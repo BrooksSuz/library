@@ -55,6 +55,7 @@ btnDisplayLibrary.addEventListener('click', function displayLibrary() {
     btnRm.addEventListener('click', function removeBook(e) {
       delBook = document.getElementById(`book-${i}`); 
       delBook.remove(); 
+      btnRm.remove(); 
     });  
     btnRm.textContent = 'Remove Book'; 
     btnRm.classList.add('btnRm'); 

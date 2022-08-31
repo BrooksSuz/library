@@ -17,7 +17,6 @@ body {
   display: flex;
   flex-direction: column;
   height: inherit;
-  align-items: center;
 }
 
 .divLibrary {
@@ -35,9 +34,5 @@ form {
 }
 
 input {
-  display: flex;
-}
-
-select {
   display: flex;
 }
