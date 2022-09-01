@@ -1,20 +1,16 @@
-let myLibrary = [{
+let myLibrary = []; /* [{
   title: 'Moby Dick', 
   author: 'Herman Melville', 
   pages: '150', 
-  read: 'not read yet'
-}, {
-  title: 'The Great Gatsby', 
-  author: 'F. Scott Fitzgerald', 
-  pages: '200', 
-  read: 'has been read'
-}, {
-  title: '1984', 
-  author: 'George Orwell', 
-  pages: '120', 
-  read: 'has been read'
-}]; 
-
+  read: 'has not been read', 
+  changeReadStatus() {
+    if (myLibrary[0].read === 'has been read') {
+      myLibrary[0].read = 'has not been read'; 
+    } else {
+      myLibrary[0].read = 'has been read'; 
+    }
+  } 
+}]; */
 
 const btnSubmit = document.querySelector('.btnSubmit'); 
 const inputTitle = document.getElementById('title'); 
@@ -29,17 +25,25 @@ function Book(title, author, pages, read) {
   this.read = read; 
 }
 
+Book.prototype.changeReadStatus = function() {
+  if (this.read === 'has been read') {
+    this.read = 'has not been read'; 
+  } else {
+    this.read = 'has been read'; 
+  }
+} 
+
 btnSubmit.addEventListener('click', function addBookToLibrary() {
-  const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value);
+  let newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value);
   myLibrary.push(newBook); 
 });
-
 
 const divLibrary = document.querySelector('.divLibrary'); 
 const btnDisplayLibrary = document.querySelector('.btnDisplayL'); 
 
 btnDisplayLibrary.addEventListener('click', function displayLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
+
     //create book card
     pBook = document.createElement('p');
     pBook.textContent = `
@@ -51,22 +55,32 @@ btnDisplayLibrary.addEventListener('click', function displayLibrary() {
     divLibrary.appendChild(pBook);
 
     //create book removal button
-    const btnRm = document.createElement('button')
-    btnRm.addEventListener('click', function removeBook(e) {
-      delBook = document.getElementById(`book-${i}`); 
-      delBook.remove(); 
+    const btnRm = document.createElement('button'); 
+    const currentBook = document.getElementById(`book-${i}`); 
+    
+    btnRm.addEventListener('click', function removeBook() {
+      currentBook.remove(); 
+      btnReadStatus.remove(); 
       btnRm.remove(); 
-    });  
+    }); 
+
     btnRm.textContent = 'Remove Book'; 
     btnRm.classList.add('btnRm'); 
     divLibrary.appendChild(btnRm); 
+
+    //create read status button
+    const btnReadStatus = document.createElement('button'); 
+    btnReadStatus.addEventListener('click', myLibrary[i].changeReadStatus()); 
+    btnReadStatus.textContent = 'Change Read Status';
+    btnReadStatus.classList.add('btnReadStatus');  
+    divLibrary.appendChild(btnReadStatus); 
   }
 }); 
 
 const form = document.querySelector('form'); 
 const btnDisplayForm = document.querySelector('.btnDisplayF'); 
 
-btnDisplayForm.addEventListener('click', function(e) {
+btnDisplayForm.addEventListener('click', function() {
   if (form.style.display === 'flex') {
     form.style.display = 'none'; 
   } else {

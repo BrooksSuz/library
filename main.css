@@ -33,6 +33,10 @@ form {
   align-self: flex-start;
 }
 
+.btnReadStatus {
+  align-self: flex-start;
+}
+
 input {
   display: flex;
 }
