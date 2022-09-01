@@ -47,6 +47,7 @@ btnDisplayLibrary.addEventListener('click', function displayLibrary() {
     const currentBook = document.getElementById(`book-${i}`); 
     
     btnRm.addEventListener('click', function removeBook() {
+      myLibrary.splice(i, 1); 
       currentBook.remove(); 
       btnReadStatus.remove(); 
       btnRm.remove(); 
