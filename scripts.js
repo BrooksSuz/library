@@ -1,16 +1,4 @@
-let myLibrary = []; /* [{
-  title: 'Moby Dick', 
-  author: 'Herman Melville', 
-  pages: '150', 
-  read: 'has not been read', 
-  changeReadStatus() {
-    if (myLibrary[0].read === 'has been read') {
-      myLibrary[0].read = 'has not been read'; 
-    } else {
-      myLibrary[0].read = 'has been read'; 
-    }
-  } 
-}]; */
+let myLibrary = []; 
 
 const btnSubmit = document.querySelector('.btnSubmit'); 
 const inputTitle = document.getElementById('title'); 
