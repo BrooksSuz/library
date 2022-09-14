@@ -6,20 +6,24 @@ const inputAuthor = document.getElementById('author');
 const inputPages = document.getElementById('pages'); 
 const inputRead = document.getElementById('read'); 
 
-function Book(title, author, pages, read) {
-  this.title = title; 
-  this.author = author; 
-  this.pages = pages; 
-  this.read = read; 
-}
+class Book {
 
-Book.prototype.changeReadStatus = function() {
-  if (this.read === 'has been read') {
-    this.read = 'has not been read'; 
-  } else {
-    this.read = 'has been read'; 
+  constructor(title, author, pages, read) {
+    this.title = title; 
+    this.author = author; 
+    this.pages = pages; 
+    this.read = read; 
   }
-} 
+
+  changeReadStatus() {
+    if (this.read === 'has been read') {
+      this.read = 'has not been read'; 
+    } else {
+      this.read = 'has been read'; 
+    }
+  }
+
+}
 
 btnSubmit.addEventListener('click', function addBookToLibrary() {
   let newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value);
